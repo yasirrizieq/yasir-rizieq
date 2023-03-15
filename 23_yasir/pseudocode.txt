@@ -1,0 +1,9 @@
+INPUT jari-jari (r)
+DECLARE pi = 3.14
+DECLARE keliling, luas AS FLOAT
+
+keliling = 2 * pi * r
+luas = pi * r^2
+
+DISPLAY "Keliling lingkaran adalah " + keliling
+DISPLAY "Luas lingkaran adalah " + luas

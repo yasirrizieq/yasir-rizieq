@@ -1,0 +1,4 @@
+Tentukan jari-jari lingkaran (r)
+    Hitung keliling lingkaran dengan rumus K = 2 x pi x r
+    Hitung luas lingkaran dengan rumus L = pi x r^2
+    Tampilkan nilai keliling dan luas lingkaran
