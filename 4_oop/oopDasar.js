@@ -1,34 +1,42 @@
 // create parent class
 class Human {
     constructor(props) {
-      this.name = props.name;
-      this.address = props.address;
+        this.name = props.name;
+        this.address = props.address;
     }
-  
+
     introduce() {
-      console.log(`Hello my name is ${this.name}!`);
+        console.log(`Hello my name is ${this.name}!`);
     }
   
     work() {
-      console.log("Work!");
+        console.log("Work!");
+    }
+
+    hangout(){
+        console.log("hangout with friends")
     }
   }
   
   // create child class
-  class Proggrammer extends Human {
+    class Proggrammer extends Human {
     constructor(props) {
-      super(props);
-      this.programmingLanguage = props.programmingLanguage;
+        super(props);
+        this.programmingLanguage = props.programmingLanguage;
     }
-  }
-  
-  let mark = new Proggrammer({
+}
+    //override
+    
+
+
+
+    let mark = new Proggrammer({
     name: "Marc",
     address: "Canada",
     programmingLanguage: ["JavaScript", "TypeScript", "PHP", "Golang"],
-  });
-  console.log(mark.name);
-  console.log(mark.address);
-  console.log(mark.programmingLanguage);
-  mark.introduce();
-  mark.work();
+    });
+    console.log(mark.name);
+    console.log(mark.address);
+    console.log(mark.programmingLanguage);
+    mark.introduce();
+    mark.work();
