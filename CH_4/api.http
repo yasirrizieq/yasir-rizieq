@@ -1,0 +1,83 @@
+
+GET http://localhost:8000
+
+###
+GET http://localhost:8000/components
+
+### Get detail components
+GET http://localhost:8000/components/1
+
+### Create component data
+POST http://localhost:8000/components
+Content-Type: application/json
+
+{
+    "name": "Shock breaker",
+    "description": "ngomongin koding",
+    "component_id":1
+    
+}
+
+### Update component data
+PUT http://localhost:8000/components/1
+Content-Type: application/json
+
+{
+    "name": "Ganti judul"
+    // "description": "Ganti description"
+}
+
+### Delete component data
+DELETE  http://localhost:8000/components/2
+
+
+//====================================================================================
+
+// VIDEO api
+GET http://localhost:8000
+
+###
+GET http://localhost:8000/videos
+
+### Get detail videos
+GET http://localhost:8000/videos/1
+
+### Create video data
+POST http://localhost:8000/videos
+Content-Type: application/json
+
+{
+    "channel_id": 3,
+    "title": "Reksa Dana 5",
+    "description": "Cara menabung untuk pemula"
+}
+
+### Update video data
+PUT http://localhost:8000/videos/1
+Content-Type: application/json
+
+{
+    "title": "Ganti judul"
+    // "description": "Ganti description"
+}
+
+### Delete video data
+DELETE  http://localhost:8000/channels/1
+
+//============================================================================
+### List user
+GET http://localhost:8000/users
+
+### Get user
+GET http://localhost:8000/users/2
+
+### Create user
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+    "name": "Sabrina",
+    "email": "sabrina@mail.com",
+    "password": "password123"
+}
+
