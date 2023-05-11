@@ -7,7 +7,7 @@ info:
     email: m.yasirriziq@gmail.com
   version: 1.0.0
 servers:
-  - url: http://localhost:3000
+  - url: http://localhost:8000
     description: Test local computer
   - url: https://test.stok-barang.com
     description: Staging
