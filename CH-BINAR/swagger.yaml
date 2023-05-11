@@ -1,0 +1,257 @@
+openapi: 3.0.0
+info:
+  title: Stok barang
+  description: |-
+    Aplikasi sederhana penyedia stok barang
+  contact:
+    email: m.yasirriziq@gmail.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Test local computer
+  - url: https://test.stok-barang.com
+    description: Staging
+  - url: https://stok-barang.com
+    description: Production
+tags:
+  - name: User
+    description: Proses Autentikasi
+  - name: Supplier
+    description: Supplier barang
+  - name: Component
+    description: Component barang
+  - name: Product
+    description: Product
+paths:
+  /register:
+    post:
+      tags:
+        - User
+      summary: Mendaftarkan User
+      description: Mendaftarkan User (desc)
+      operationId: post-register-user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: sabrina
+                email:
+                  type: string
+                  example: sabrina@mail.com
+                password:
+                  type: string
+                  example: password123
+      responses:
+        "201":
+          description: Success Register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+                    example: success
+                  data: 
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: sabrina
+                      email:
+                        type: string
+                        example: sabrina@mail.com
+        "400":
+          description: Error from user
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    properties:
+                      status:
+                        type: boolean
+                        example: false
+                      message:
+                        type: string
+                        example: email already used!
+                      data: 
+                        type: object
+                  - type: object
+                    properties:
+                      status:
+                        type: boolean
+                        example: false
+                      message:
+                        type: string
+                        example: name, email and password is required!
+                      data: 
+                        type: object
+              examples:
+                duplicated-email:
+                  summary: If email already used
+                  value:
+                    status: false
+                    message: email already used!
+                    data: {}
+                bad-request:
+                  summary: If required data is not provided
+                  value:
+                    status: false
+                    message: name, email and password is required!
+                    data: {}
+                    
+  /supplier:
+    post:
+      tags:
+        - Supplier
+      summary: Mendaftarkan supplier
+      description: Mendaftarkan supplier (desc)
+      operationId: post-supplier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: sabrina
+                address:
+                  type: string
+                  example: jl kramat 2 pondok pinang
+      responses:
+        "200":
+          description: Success Register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+                    example: success
+                  data: 
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: sabrina
+                      address:
+                        type: string
+                        example: jl kramat 2 pondok pinang
+        "400":
+          description: Error from user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: supplier is invalid
+                  data: 
+                    type: object
+  /Product:
+    get:
+      tags:
+        - Product
+      summary: Mendapatkan product 
+      description: Mendapatkan product (desc)
+      operationId: get-product
+      responses:
+        "200":
+          description: Success Register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+                    example: success
+                  data: 
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: mobil
+                      quantity:
+                        type: string
+        "400":
+          description: Error from user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: product is invalid
+                  data: 
+                    type: object
+  /Component:
+    get:
+      tags:
+        - Component
+      summary: Mendapatkan component 
+      description: Mendapatkan component  (desc)
+      operationId: get-component
+      responses:
+        "200":
+          description: Success Register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+                    example: success
+                  data: 
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: velg
+                      description:
+                        type: string
+        "400":
+          description: Error from user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: name is invalid
+                  data: 
+                    type: object
+                  
+                    
+              
